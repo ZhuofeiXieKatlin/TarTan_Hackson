@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ClassForum</title>
+    <style>
+    body{
+        background-image: url("{{url_for('static', filename='rate-display.jpg')}}");
+        color: black;
+    }
+    div.topnavbar{
+    overflow: hidden;
+    background-color: azure;
+    }
+    div.topnavbar a{
+        float:right;
+        color: #4c96d7;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 20px;
+        width: 28%;
+    }
+    div.topnavbar a:hover{
+        background-color: #083b66;
+        font-weight: bold;
+        color:whitesmoke;
+    }
+    div.topnavbar a.active{
+        background-color: #4c96d7;
+        color: whitesmoke;
+        font-weight: bold;
+    }
+    div.topnavbar img{
+        padding-left: 20px;
+    }
+    .container {
+      border: 2px solid #dedaaa;
+      background-color: #f1f1f1;
+      border-radius: 15px;
+      padding: 10px;
+      margin: 5px 0;
+      top: 1000px;
+      width: 1050px;
+      height: 80px;
+      float: left;
+      margin-left: 210px;
+      border-style: dashed;
+    }
+    </style>
+</head>
+<body>
+    <div class="topnavbar">
+        <a class="active" href="{{ url_for('class_forum') }}">Forum</a>
+        <a href="{{ url_for('portfolio') }}">My Portfolio</a>
+        <a href="{{ url_for('homepage') }}">Search</a>
+        <img src="{{ url_for('static', filename='logo.png')}}" width="70px" height="50px">
+    </div>
+    <div class="container">
+      <h2>Is there any one know how to compile JAVA?</h2>
+      <p>Based on you question, I think you have to read...</p>
+    </div>
+    <div class="container">
+      <h2>I have a problem about how to use the StringBuilder</h2>
+      <p>In my recent project, I have to use the StringBuilder...</p>
+    </div>
+    <div class="container">
+      <h2>Why is Professor XXX have such a good score on ProClass?</h2>
+      <p>Is there someone could explain me that why he has such a good rank...</p>
+    </div>
+    <div class="container">
+      <h2>Any recommendation elective course?</h2>
+      <p>I am a CS student. This is my junior year, I am confused about the class...</p>
+    </div>
+
+<div class="forum">
+</div>
+
+
+</body>
+</html>

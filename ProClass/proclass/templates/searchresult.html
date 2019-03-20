@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Search Result</title>
+    <style >
+        body{
+            background-image: url("{{url_for('static', filename='background.png')}}");
+            color: black;
+        }
+        div.result{
+            margin-top: 20px;
+            padding-left: 35px;
+            padding-right: 35px;
+            padding-bottom: 10px;
+            margin-top: 10px;
+            background-color: aliceblue;
+            float: left;
+            margin-left: 30%;
+            color:#083b66;
+            border: 5px solid #083b66;
+            border-style: dashed;
+        }
+      #myUL {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      #myUL li a {
+        border: 1px solid #ddd;
+        margin-top: -1px; /* Prevent double borders */
+        background-color: #f6f6f6;
+        padding: 12px;
+        text-decoration: none;
+        font-size: 18px;
+        color: black;
+        display: block
+      }
+
+      #myUL li a:hover:not(.header) {
+        background-color: #eee;
+      }
+        
+        div.topnavbar{
+            overflow: hidden;
+            background-color: azure;
+        }
+        div.topnavbar a{
+            float:right;
+            color: #4c96d7;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 20px;
+            width: 28%;
+        }
+        div.topnavbar a:hover{
+            background-color: #083b66;
+            font-weight: bold;
+            color:whitesmoke;
+        }
+        div.topnavbar a.active{
+            background-color: #4c96d7;
+            color: whitesmoke;
+            font-weight: bold;
+        }
+        div.topnavbar img{
+            padding-left: 20px;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="topnavbar">
+            <a href="{{ url_for('class_forum') }}">Forum</a>
+            <a href="{{ url_for('portfolio') }}">My Portfolio</a>
+            <a href="{{ url_for('homepage') }}">Search</a>
+            <img src="{{ url_for('static', filename='logo.png')}}" width="70px" height="50px">
+    </div>
+      
+    <div class="result">
+    <h1>{{ category + " : " + name}}</h1>
+    {% if category == 'Class' %}
+      <ul class="myUL" id="class_result">
+        {% for professor in results %}
+          <li><a href="{{url_for('pro_class', class_string=(name + '_' + professor.name))}}">{{professor.name}}</a></li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <ul class="myUL" id="professor_result">
+        {% for course in results %}
+          <li><a href="{{url_for('pro_class', class_string=(course.course_name + '_' + name))}}">{{course.course_name+ '_'+name}}</a></li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<html lang = "en" fir = "ltr">
+<head>
+    <title>Professor Information</title>
+    <style>
+        body{
+            background-image: url("{{url_for('static', filename='background.png')}}");
+            color: black;
+        }
+        div.topnavbar{
+            overflow: hidden;
+            background-color: azure;
+        }
+        div.topnavbar a{
+            float:right;
+            color: #4c96d7;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 20px;
+            width: 28%;
+        }
+        div.topnavbar a:hover{
+            background-color: #083b66;
+            font-weight: bold;
+            color:whitesmoke;
+        }
+        div.topnavbar a.active{
+            background-color: #4c96d7;
+            color: whitesmoke;
+            font-weight: bold;
+        }
+        div.topnavbar img{
+            padding-left: 20px;
+        }
+        div.professor_Information{
+            padding-left: 35px;
+            padding-right: 35px;
+            padding-bottom: 10px;
+            margin-top: 10px;
+            background-color: aliceblue;
+            float: left;
+            margin-left: 360px;
+            color:#083b66;
+            border: 5px solid #083b66;
+            height: 80%;
+            width: 40%;
+            border-style: dashed;
+        }
+        </style>
+</head>
+<body>
+
+    <div class="topnavbar">
+        <a href="{{ url_for('class_forum') }}">Forum</a>
+        <a href="{{ url_for('portfolio') }}">My Portfolio</a>
+        <a href="{{ url_for('homepage') }}">Search</a>
+        <img src="{{ url_for('static', filename='logo.png')}}" width="70px" height="50px">
+    </div>
+    <div class = "professor_Information">
+        <div id ="Personal_Information">
+            <img src = "{{url_for('static', filename='Garisson.jpg')}}" weidth="100px" height ="100px" alt="garisson.jpg">
+            <h3>Professor Information</h3>
+            <p><strong>Name: </strong>William Garrison</p>
+            <p><strong>Office: </strong>Sennote Square 5129</p>
+            <p><strong>Email: </strong> bill@cs.pitt.edu</p>
+            <p><strong>Departments: </strong>Computer Science</p>
+            <input type="button" value="Go to Chat Room" onclick="window.location.href='url_for('chat_room')'" />
+        </div>
+        <div id = "Research">
+            <h3>Research</h3>
+            <p>My research interests are based in the formal study of computer systems to
+               better understand the practical implications of security decisions. My dissertation
+               work is in access control suitability analysis: given the requirements of an application,
+               choose the access control system that is most well-suited to that application among those
+               that are expressive enough to safely satisfy it. This is in contrast to traditional access
+               control evaluation, which is application-agnostic and deems the most expressive system the
+               best. To this end, I am developing techniques that evaluate access control systems while considering
+               application-sensitive requirements and evaluation metrics (both qualitative and quantitative).My other
+               research interests include usable web privacy tools and mobile malware risk estimation from structural
+               properties of application packages</p>
+        </div>
+    </div>
+</body>
